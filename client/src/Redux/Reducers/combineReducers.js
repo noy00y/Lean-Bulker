@@ -5,3 +5,5 @@ import reducerType from "./reducer_type";
 const reducers = combineReducers({
     reducer: reducerType,
 })
+
+export default reducers;
