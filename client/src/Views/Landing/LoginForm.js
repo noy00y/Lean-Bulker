@@ -2,47 +2,8 @@ import React, {useState, setState} from 'react';
 import './LoginForm.scss';
 import $ from 'jquery'; 
 
-// Wtf:
-$(document).ready(function () {
-  $('.form').find('input, textarea').on('keyup blur focus', function (e) {
-  
-    var $this = $(this),
-        label = $this.prev('label');
-  
-      if (e.type === 'keyup') {
-        if ($this.val() === '') {
-            label.removeClass('active highlight');
-          } else {
-            label.addClass('active highlight');
-          }
-      } else if (e.type === 'blur') {
-        if( $this.val() === '' ) {
-          label.removeClass('active highlight'); 
-        } else {
-          label.removeClass('highlight');   
-        }   
-      } else if (e.type === 'focus') {
-        
-        if( $this.val() === '' ) {
-          label.removeClass('highlight'); 
-        } 
-        else if( $this.val() !== '' ) {
-          label.addClass('highlight');
-        }
-      }
-  
-  });
-  
-  $('.tab a').on('click', function (e) {
-  
-    e.preventDefault();
-    
-    $(this).parent().addClass('active');
-    $(this).parent().siblings().removeClass('active');
-    
-    target = $(this).attr('href');
-  });
-});
+// Change Form:
+
 
 function Login() {
   // State:
@@ -76,12 +37,15 @@ function Login() {
   // HTML Return
   return (
     <div className = "form">
+
+      {/* Register or Login */}
       <ul className = "tab-group">
         <li className = "tab active"><a href = {"#signup"}>Sign Up</a></li>
         <li className = "tab"><a href = {"#login"}>Log In</a></li>
       </ul>
-
+ 
       <div className = "tab-content">
+        {/* Signup */}
         <div className = "signup">
           <h1>Sign Up For Free</h1>
           <form action="/" method="post">
@@ -119,6 +83,7 @@ function Login() {
           </form>
         </div>
 
+        {/* Login */}
         <div className = "login">
           <h1>Welcome Back!</h1>
           <form action = "/" method = "post">
@@ -153,3 +118,4 @@ export default Login
 //https://www.section.io/engineering-education/registration-form-react.js-firebase/
 //https://codepen.io/ehermanson/pen/KwKWEv
 //https://reactjs.org/docs/forms.html
+//https://codepen.io/craycraftdan/pen/ypxrNg
